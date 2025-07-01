@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pago de Cuotas Escolares</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pago de Cuotas Escolares</h1>
+
+  <form id="formulario">
+    <label for="nombre">Nombre del alumno:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="curso">Curso:</label>
+    <input type="text" id="curso" name="curso" required>
+
+    <label for="cuota">Monto de la cuota ($):</label>
+    <input type="number" id="cuota" name="cuota" required>
+
+    <button type="button" onclick="redirigirPago()">Pagar</button>
+  </form>
+
+  <script>
+    function redirigirPago() {
+      const nombre = document.getElementById("nombre").value;
+      const curso = document.getElementById("curso").value;
+      const monto = document.getElementById("cuota").value;
+
+      if (nombre && curso && monto) {
+        // Link de ejemplo de Mercado Pago (reemplazar por uno real si tenés)
+        const linkPago = "https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=TU_ID";
+
+        alert("Ahora vas a ser redirigido al pago. Alumno: " + nombre);
+        window.open(linkPago, "_blank");
+      } else {
+        alert("Por favor completá todos los campos.");
+      }
+    }
+  </script>
+</body>
+</html>
