@@ -7,67 +7,90 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background-color: #f1f1f1;
+      background-color: #f7f7f7;
+      text-align: center;
     }
-    form {
+
+    img.logo {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .niveles-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .nivel {
       background-color: white;
       padding: 20px;
-      border-radius: 8px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
+
+    .nivel h2 {
+      margin-bottom: 10px;
+      color: #4CAF50;
     }
-    button {
+
+    .nivel p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .nivel button {
       background-color: #4CAF50;
       color: white;
-      padding: 12px;
       border: none;
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
-      width: 100%;
       border-radius: 5px;
     }
-    button:hover {
+
+    .nivel button:hover {
       background-color: #45a049;
     }
   </style>
 </head>
 <body>
+
+  
+  <img src="" alt="Logo de la escuela" class="logo">
+
   <h1>Pago de Cuotas Escolares</h1>
 
-  <form id="formulario">
-    <label for="nombre">Nombre del alumno:</label>
-    <input type="text" id="nombre" name="nombre" required>
+  <div class="niveles-container">
+    <!-- Nivel Inicial -->
+    <div class="nivel">
+      <h2>Inicial</h2>
+      <p>Cuota: $15.000</p>
+      <button onclick="window.open('https://mpago.la/link-inicial')">Pagar Inicial</button>
+    </div>
 
-    <label for="curso">Curso:</label>
-    <input type="text" id="curso" name="curso" required>
+    <!-- Nivel Primario -->
+    <div class="nivel">
+      <h2>Primario</h2>
+      <p>Cuota: $18.000</p>
+      <button onclick="window.open('https://mpago.la/link-primario')">Pagar Primario</button>
+    </div>
 
-    <label for="cuota">Monto de la cuota ($):</label>
-    <input type="number" id="cuota" name="cuota" required>
+    <!-- Nivel Secundario -->
+    <div class="nivel">
+      <h2>Secundario</h2>
+      <p>Cuota: $20.000</p>
+      <button onclick="window.open('https://mpago.la/link-secundario')">Pagar Secundario</button>
+    </div>
+  </div>
 
-    <button type="button" onclick="redirigirPago()">Pagar</button>
-  </form>
-
-  <script>
-    function redirigirPago() {
-      const nombre = document.getElementById("nombre").value;
-      const curso = document.getElementById("curso").value;
-      const monto = document.getElementById("cuota").value;
-
-      if (nombre && curso && monto) {
-        // Link de ejemplo de Mercado Pago (reemplazar por uno real si tenés)
-        const linkPago = "https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=TU_ID";
-
-        alert("Ahora vas a ser redirigido al pago. Alumno: " + nombre);
-        window.open(linkPago, "_blank");
-      } else {
-        alert("Por favor completá todos los campos.");
-      }
-    }
-  </script>
 </body>
 </html>
+
